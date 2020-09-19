@@ -4,23 +4,23 @@ from classicalToQuantum import *
 
 class classicalToQuantum(unittest.TestCase):
 
-    def testExperimentBooleanMatrix(self):
+    def testcanicasbooleanas(self):
         booleanMatrix = [[False, False, False, False, False, False], [True, False, False, False, False, True],
                          [True, False, False, False, False, False], [False, False, True, False, False, False],
                          [False, False, False, True, False, False], [False, False, False, False, True, False]]
 
         vectIni = [True, False, False, False, False, False]
 
-        self.assertEqual(experimentBooleanMatrix(1, booleanMatrix[:], vectIni[:]),
+        self.assertEqual(canicasbooleanas(1, booleanMatrix[:], vectIni[:]),
                          [False, True, True, False, False, False])
 
-        self.assertEqual(experimentBooleanMatrix(3, booleanMatrix[:], vectIni[:]),
+        self.assertEqual(canicasbooleanas(3, booleanMatrix[:], vectIni[:]),
                          [False, False, False, False, True, False])
 
-        self.assertEqual(experimentBooleanMatrix(5, booleanMatrix[:], vectIni[:]),
+        self.assertEqual(canicasbooleanas(5, booleanMatrix[:], vectIni[:]),
                          [False, True, False, False, False, False])
 
-    def testMultipleSlitExperiment(self):
+    def testmultiplerendijaclasico(self):
         matrix = [[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
                   [[0.3333333333333333, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
                   [[0.3333333333333333, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
@@ -31,7 +31,7 @@ class classicalToQuantum(unittest.TestCase):
                   [[0, 0], [0, 0], [0, 0], [0.5, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]
 
         vectIni = [[1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
-        self.assertEqual(probabilisticSystem(matrix[:], vectIni[:], 1), [(0, 0), (0.3333333333333333, 0.0),
+        self.assertEqual(sistemaprobabilistico(matrix[:], vectIni[:], 1), [(0, 0), (0.3333333333333333, 0.0),
                                                                          (0.3333333333333333, 0.0),
                                                                          (0.3333333333333333, 0.0),
                                                                          (0.0, 0.0), (0.0, 0.0), (0.0, 0.0),
@@ -47,12 +47,12 @@ class classicalToQuantum(unittest.TestCase):
                   [[0, 0], [0, 0], [0.3333333333333333, 0], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0]]]
 
         vectIni = [[1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
-        self.assertEqual(probabilisticSystem(matrix[:], vectIni[:], 2),
+        self.assertEqual(sistemaprobabilistico(matrix[:], vectIni[:], 2),
                          [(0.0, 0.0), (0.0, 0.0), (0.0, 0.0), (0.16666666666666666, 0.0),
                           (0.16666666666666666, 0.0), (0.3333333333333333, 0.0),
                           (0.16666666666666666, 0.0), (0.16666666666666666, 0.0)])
 
-    def testMultipleSlitQuantumExperiment(self):
+    def testmultiplerendijacuantico(self):
         matrix = [[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
                   [[0.7071067811865475, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
                   [[0.7071067811865475, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
@@ -64,7 +64,7 @@ class classicalToQuantum(unittest.TestCase):
                   [[0, 0], [0, 0], [0.4082482904638631, -0.4082482904638631], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0]]]
 
         vectIni = [[1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
-        self.assertEqual(multipleSlitQuantumExperiment(matrix[:], vectIni[:], 1),
+        self.assertEqual(multiplerendijacuantico(matrix[:], vectIni[:], 1),
                          [[[0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0]],
                           [[0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0]],
                           [[0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0], [0.0, 0]],
@@ -79,7 +79,7 @@ class classicalToQuantum(unittest.TestCase):
                           [[0.1666666666666667, 0], [0.0, 0], [0.3333333333333334, 0], [0.0, 0], [0.0, 0], [0.0, 0],
                            [0.0, 0], [1.0, 0]]])
 
-    def testGraphProbabilitiesVector(self):
+    def testgrafico(self):
         Matriz_Doble_Rendija = [
             [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
             [[1 / math.sqrt(2), 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
@@ -93,9 +93,9 @@ class classicalToQuantum(unittest.TestCase):
 
         Estado_Inicial = [[1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 
-        answ = accionmatrizvector(multipleSlitQuantumExperiment(Matriz_Doble_Rendija[:],
+        answ = accionmatrizvector(multiplerendijacuantico(Matriz_Doble_Rendija[:],
                                                                   Estado_Inicial[:], 2), Estado_Inicial)
-        graphProbabilitiesVector(answ)
+        grafico(answ)
 
 
 if __name__ == '__main__':

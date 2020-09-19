@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plot
 import numpy as np
-
 from calculadora_imaginarios import *
 
 
 def finalMatrix(matrix):
+    """Función que halla la magnitud de una matriz de imaginarios
+    (list 2D) -> list 2D"""
     row, column = len(matrix), len(matrix[0])
     for i in range(row):
         nRow = []
@@ -15,7 +16,9 @@ def finalMatrix(matrix):
     return matrix
 
 
-def quantumProbabilisticSystem(matrix, vectIni, clicks):
+def sistemaprobabilisticoquantico(matrix, vectIni, clicks):
+    """Función que simula un sistema probabilistico cuantico
+    (list 2D, list 1D, int) -> list 2D"""
     if (clicks >= 0) and (type(clicks) is int):
         length = len(vectIni)
         copyMatrix = matrix[:]
@@ -27,7 +30,9 @@ def quantumProbabilisticSystem(matrix, vectIni, clicks):
     return -1
 
 
-def probabilisticSystem(matrix, vectIni, clicks):
+def sistemaprobabilistico(matrix, vectIni, clicks):
+    """Función que simula un sistema probabilistico clasico
+        (list 2D, list 1D, int) -> list 1D"""
     if (clicks >= 0) and (type(clicks) is int):
         length = len(vectIni)
         for x in range(clicks):
@@ -36,7 +41,9 @@ def probabilisticSystem(matrix, vectIni, clicks):
     return -1
 
 
-def experimentBooleanMatrix(clicks, booleanMatrix, vectIni):
+def canicasbooleanas(clicks, booleanMatrix, vectIni):
+    """Funcion que simula experimento de canicas con coeficientes booleanos
+    (int, list 2D boolean, list 1D) -> list 1D"""
     if (clicks >= 0 and type(clicks) is int):
         for c in range(clicks):
             vectIni = accionvectormatrizboolean(booleanMatrix, vectIni)
@@ -44,15 +51,22 @@ def experimentBooleanMatrix(clicks, booleanMatrix, vectIni):
         return vectIni
 
 
-def multipleSlitExperiment(matrix, vectIni, clicks):
-    return probabilisticSystem(matrix, vectIni, clicks)
+def multiplerendijaclasico(matrix, vectIni, clicks):
+    """Función que simula el experimento de multiples rendijas clasico
+    (list 2D, list 1D, int) -> list 2D"""
+    return sistemaprobabilistico(matrix, vectIni, clicks)
 
 
-def multipleSlitQuantumExperiment(matrix, vectIni, clicks):
-    return quantumProbabilisticSystem(matrix, vectIni, clicks)
+def multiplerendijacuantico(matrix, vectIni, clicks):
+    """Función que simula el experimento de multiples rendijas cuantico
+        (list 2D, list 1D, int) -> list 2D"""
+    return sistemaprobabilisticoquantico(matrix, vectIni, clicks)
 
 
-def graphProbabilitiesVector(vector):
+def grafico(vector):
+    """Funcion que grafica un diagrama de barras que muestre las probabilidades de un vector de estados. La imagen puede
+    guardarse en el computador.
+    (list 1D) -> None"""
     data = len(vector)
     x = np.array([x for x in range(data)])
     y = np.array([round(vector[x][0] * 100, 2) for x in range(data)])
